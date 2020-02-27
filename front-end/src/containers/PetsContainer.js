@@ -6,7 +6,7 @@ export default class PetsContainer extends Component {
     componentDidMount(){
         getPets()
     }
-
+    
     render(){
         return (
             <div>
