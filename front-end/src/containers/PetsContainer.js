@@ -1,12 +1,13 @@
 import React, {Component} from 'react'
-import getPets from '../actions/getPets'
+import { getPets } from '../actions/getPets'
+import { connect } from 'react-redux'
 
-export default class PetsContainer extends Component {
+class PetsContainer extends Component {
 
     componentDidMount(){
-        getPets()
+        this.getPets()
     }
-    
+
     render(){
         return (
             <div>
@@ -16,3 +17,6 @@ export default class PetsContainer extends Component {
     }
 
 }
+
+export default connect(null, { getPets })(PetsContainer)
+
