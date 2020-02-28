@@ -11,10 +11,9 @@ class PetsContainer extends React.Component{
     }
 
     render(){
-        console.log(this.props)
         return (
             <div>
-                Pets Container
+                <Pets pets={this.props.pets}/>
             </div>
         )
     }

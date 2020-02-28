@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 import Pet from '../Pets/Pet'
 
-class Pets extends Component{
+function Pets(props){
 
-    render(){
-        return <div>
-                {this.props.pets.map(pet => <Pet />)}
-            </div>
-    }
+    console.log(props)
+    return <div>
+            {props.pets.pets.map(pet => <Pet pet={pet}/>)}
+        </div>
+
 }
 
 export default Pets
