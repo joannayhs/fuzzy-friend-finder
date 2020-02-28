@@ -1,10 +1,13 @@
 export default function managePets(
     state={
-        pets: []
+        pets: [],
+        requesting: false
     }, action){
         switch(action.type){
+            case 'START_ADDING_PETS':
+                return {...state, pets: [...state.pets], requesting: true}
             case 'ADD_PETS':
-                return {...state, pets: action.pets}
+                return {...state, pets: action.pets, requesting: false}
             default:
                 return state
         }
