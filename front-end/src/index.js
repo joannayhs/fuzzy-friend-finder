@@ -4,10 +4,10 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux'
-import managePets from './reducers/managePets'
+import rootReducer from './reducers/rootReducer'
 import { Provider } from 'react-redux'
 
-const store = createStore(managePets)
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
 <Provider store ={store}>

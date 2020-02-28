@@ -3,7 +3,7 @@ export default function managePets(
         pets: []
     }, action){
         switch(action.type){
-            case 'GET_PETS':
+            case 'ADD_PETS':
                 return {...state, pets: action.pets}
             default:
                 return state
