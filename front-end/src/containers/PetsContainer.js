@@ -1,22 +1,22 @@
 import React, {Component} from 'react'
 import { getPets } from '../actions/getPets'
 import { connect } from 'react-redux'
+import Pets from '../components/Pets/Pets'
 
 class PetsContainer extends Component {
 
     componentDidMount(){
-        this.getPets()
+       
     }
 
     render(){
         return (
             <div>
-                <h1>Pets Container</h1>
+                <Pets pets={this.props.pets}/>
             </div>
         )
     }
-
 }
 
-export default connect(null, { getPets })(PetsContainer)
+export default connect()(PetsContainer)
 

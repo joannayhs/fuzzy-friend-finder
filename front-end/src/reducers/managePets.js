@@ -5,7 +5,6 @@ export default function managePets(
         switch(action.type){
             case 'GET_PETS':
                 return {...state, pets: action.pets}
-            
             default:
                 return state
         }
