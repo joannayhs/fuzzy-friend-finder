@@ -1,23 +1,25 @@
-import React, {Component} from 'react'
-import { getPets } from '../actions/getPets'
+import React from 'react'
+import { fetchPets } from '../actions/fetchPets'
 import { connect } from 'react-redux'
 import Pets from '../components/Pets/Pets'
-import { Client } from '@petfinder/petfinder-js'
 
 
-class PetsContainer extends Component {
+class PetsContainer extends React.Component{
+
+    componentDidMount(){
+        this.props.fetchPets()
+    }
 
     render(){
-        console.log(this)
+        console.log(this.props)
         return (
             <div>
-                <Pets pets={this.state.animals}/>
+                Pets Container
             </div>
         )
     }
-    
 
 }
 
-export default PetsContainer
+export default connect(state => ({pets: state.pets}), { fetchPets })(PetsContainer)
 

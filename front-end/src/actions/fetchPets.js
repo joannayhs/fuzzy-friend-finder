@@ -1,4 +1,3 @@
-import React from 'react'
 import {Client} from '@petfinder/petfinder-js'
 
 export function fetchPets() {
@@ -10,7 +9,7 @@ export function fetchPets() {
         client.animal.search()
         .then(function(response){
             const animals = response.data.animals
-           return {type: 'ADD_PETS', animals}
+            return dispatch({type: 'ADD_PETS', animals})
         }).catch(function(error){
             console.log(error)
         })
