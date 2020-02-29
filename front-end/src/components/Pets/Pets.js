@@ -5,7 +5,7 @@ function Pets(props){
 
     console.log(props)
     return <div>
-            {props.pets.pets.map(pet => <Pet pet={pet}/>)}
+            {props.pets.pets.map(pet => <Pet key={pet.id} pet={pet}/>)}
         </div>
 
 }

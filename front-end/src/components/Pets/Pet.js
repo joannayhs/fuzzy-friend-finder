@@ -10,9 +10,9 @@ function Pet(props){
     return (
         <div id={props.pet.id} className='pet'>
             <h2>{props.pet.name}</h2><br/>
-            {loadPhotos()}
-            {props.pet.type}<br/>
+            {loadPhotos()}<br/>
             {props.pet.species}<br/>
+            <button>Adopt</button>
         </div>
     )
 }

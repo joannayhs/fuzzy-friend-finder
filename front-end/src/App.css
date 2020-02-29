@@ -35,4 +35,12 @@
   to {
     transform: rotate(360deg);
   }
+
+}
+
+.pet{
+  border: 1px black solid;
+  margin: auto;
+  padding: auto;
+  border-radius: 5px;
 }
