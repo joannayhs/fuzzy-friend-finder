@@ -1,20 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-function Pet(props){
-    function loadPhotos(){
-        if(props.pet.photos.length > 0){
-            return <img src={props.pet.photos[0].small}/>
+class Pet extends Component {
+
+    loadPhotos = () => {
+        if(this.props.pet.photos.length > 0){
+            return <img src={this.props.pet.photos[0].small}/>
         }
     }
 
-    return (
-        <div id={props.pet.id} className='pet'>
-            <h2>{props.pet.name}</h2><br/>
-            {loadPhotos()}<br/>
-            {props.pet.species}<br/>
-            <button>Adopt</button>
+    handleOnClick = e => {
+        console.log(e)
+    }
+
+    render(){
+        return (
+        <div id={this.props.pet.id} className='pet'>
+            <h2>{this.props.pet.name}</h2><br/>
+            {this.loadPhotos()}<br/>
+            {this.props.pet.species}<br/>
+            <button id={this.props.pet.id} onClick={e => this.handleOnClick(e)}>Adopt</button>
         </div>
-    )
+        )}
 }
 
 export default Pet
