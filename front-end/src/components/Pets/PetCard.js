@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Application from '../Application/ApplicationForm'
+import ApplicationForm from '../Application/ApplicationForm'
 
-class Pet extends Component {
+class PetCard extends Component {
 
     loadPhotos = () => {
         if(this.props.pet.photos.length > 0){
@@ -12,8 +12,8 @@ class Pet extends Component {
     handleOnClick = e => {
         return (
         <div>
-         <Application petId={this.props.pet.id}/>
-         </div>
+            <ApplicationForm petId={this.props.pet.id}/>
+        </div>
         )
     }
 
@@ -23,9 +23,9 @@ class Pet extends Component {
             <h2>{this.props.pet.name}</h2><br/>
             {this.loadPhotos()}<br/>
             {this.props.pet.species}<br/>
-            <button onClick={e => this.handleOnClick(e)}>Adopt</button>
+            <button onClick={this.handleOnClick}>Adopt</button>
         </div>
         )}
 }
 
-export default Pet
+export default PetCard

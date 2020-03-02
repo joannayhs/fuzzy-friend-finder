@@ -1,12 +1,32 @@
-import React from 'react'
-import Pet from '../Pets/Pet'
+import React, {Component} from 'react'
+import PetCard from './PetCard'
+import { connect } from 'react-redux'
 
-function Pets(props){
+class Pets extends Component {
 
-    return <div>
-            {props.pets.pets.map(pet => <Pet key={pet.id} pet={pet} loadAdoptionForm={pet.loadAdoptionForm}/>)}
-        </div>
+    checkRequesting = () => {
+        console.log(this.props)
+        if (this.props.requesting){
+            return <h1>Loading...</h1>
+        }else{
+            return (
+            <div>
+                {this.props.pets.pets.map(pet => <PetCard key={pet.id} pet={pet} loadAdoptionForm={pet.loadAdoptionForm} />)}
+            </div>
+        )}
+    }
+
+    render(){
+        return this.checkRequesting()
+    } 
 
 }
 
-export default Pets
+const mapStateToProps = state => {
+    return {
+        pets: state.pets,
+        requesting: state.requesting
+    } 
+}
+
+export default connect(mapStateToProps)(Pets)
