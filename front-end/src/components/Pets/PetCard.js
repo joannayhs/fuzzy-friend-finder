@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ApplicationForm from '../Application/ApplicationForm'
+import {NavLink} from 'react-router-dom'
 
 class PetCard extends Component {
 
@@ -9,21 +9,13 @@ class PetCard extends Component {
         }
     }
 
-    handleOnClick = e => {
-        return (
-        <div>
-            <ApplicationForm petId={this.props.pet.id}/>
-        </div>
-        )
-    }
-
     render(){
         return (
         <div id={this.props.pet.id} className='pet-card'>
             <h2>{this.props.pet.name}</h2><br/>
             {this.loadPhotos()}<br/>
             {this.props.pet.species}<br/>
-            <button onClick={this.handleOnClick}>Adopt</button>
+            <NavLink to='/application' exact>Adopt</NavLink>
         </div>
         )}
 }
