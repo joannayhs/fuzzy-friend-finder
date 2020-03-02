@@ -19,7 +19,7 @@ class PetCard extends Component {
 
     render(){
         return (
-        <div id={this.props.pet.id} className='pet'>
+        <div id={this.props.pet.id} className='pet-card'>
             <h2>{this.props.pet.name}</h2><br/>
             {this.loadPhotos()}<br/>
             {this.props.pet.species}<br/>

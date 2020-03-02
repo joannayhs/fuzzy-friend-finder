@@ -6,12 +6,14 @@ import Application from './containers/ApplicationContainer'
 import Profile from './containers/ProfileContainer'
 import LoginForm  from './components/login'
 import SignUpForm from './components/signUp'
+import NavBar from './components/NavBar'
 
 
 function App() {
   return (
     <Router>
       <div>
+        <NavBar/>
         <Route exact path='/' component={PetsContainer}/>
         <Route exact path='/pets' component={PetsContainer}/>
         <Route exact path='/login' component={LoginForm}/>
