@@ -1,6 +1,6 @@
 import React from 'react'
 import { fetchPets } from '../actions/fetchPets'
-import { loadAdoptionForm } from '../actions/loadAdoptionForm'
+import { loadAdoptionForm } from '../actions/AdoptionFormActions'
 import { connect } from 'react-redux'
 import Pets from '../components/Pets/Pets'
 

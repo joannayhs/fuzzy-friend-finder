@@ -5,27 +5,27 @@ export default class ApplicationForm extends Component {
         super(props)
         this.state={
             petId: props.petId,
-            firstName: '',
-            lastName: '',
-            email: '',
-            phoneNumber:''
-
+            status: 'pending'
         }
+    }
+
+    handleOnChange = (e) => {
+        return this.setState({...this.state, [e.target.name]: e.target.value})
     }
 
     handleOnSubmit = (e) => {
         e.preventDefault()
-        console.log(e)
+        this.props.submitForm(this.state)
     }
 
     render() {
-
-       return ( <form onSubmit={this.handleOnSubmit}>
-            <input type="text" value={this.state.petId}/>
-            <input type="text" placeholder="First Name" name='firstName'/><br/>
-            <input type='text' placeholder="Last Name" name="lastName" /><br/>
-            <input type="text" placeholder='email' name="email"/><br/>
-            <input type="text" placeholder="Phone Number" name="phoneNumber"/><br/>
+       return ( 
+       <form onSubmit={ (e) => this.handleOnSubmit(e)}>
+            <input type="text" value={this.state.petId}/><br/>
+            <input type="text" placeholder="First Name" name='firstName' onChange={this.handleOnChange}/><br/>
+            <input type='text' placeholder="Last Name" name="lastName" onChange={this.handleOnChange}/><br/>
+           <input type="text" placeholder='Email' name="email" onChange={this.handleOnChange}/><br/>
+           <input type="tel" placeholder="Phone Number" name="phoneNumber" onChange={this.handleOnChange}/><br/>
             <input type="submit"/>
         </form>
        )}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {NavLink} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 class PetCard extends Component {
 
@@ -15,7 +15,10 @@ class PetCard extends Component {
             <h2>{this.props.pet.name}</h2><br/>
             {this.loadPhotos()}<br/>
             {this.props.pet.species}<br/>
-            <NavLink to='/application' exact>Adopt</NavLink>
+            <Link to={{
+                pathname: '/application',
+                petId: this.props.pet.id
+            }}>Adopt</Link>
         </div>
         )}
 }
