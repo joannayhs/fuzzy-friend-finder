@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { signUpUser } from  '../actions/userActions'
 
-export default function SignUpForm(){
+class SignUpForm extends Component {
     
-    return (
-        <div>
+    render() {
+        return <div>
             <form>
                 <input type='text' placeholder='Username' />
                 <input type='password' placeholder='Password' />
                 <input type='submit'/>
             </form>
         </div>
-    )
+        }
+    
 }
+
+export default connect(null, { signUpUser })(SignUpForm)

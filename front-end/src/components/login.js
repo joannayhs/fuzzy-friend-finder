@@ -1,19 +1,40 @@
-import React from 'react'
+import React, {Component} from 'react'
+import { connect } from 'react-redux'
+import { loginUser } from '../actions/userActions'
 
-export default function Login(){
-
-    function handleOnSubmit(e){
-        e.preventDefault()
-        console.log(e)
+class Login extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            email: '',
+            password: ''
+        }
     }
 
-    return (
-        <div>
-            <form onSubmit={handleOnSubmit}>
-                <input type="text" placeholder="Username"/>
-                <input type='password' placeholder='password'/>
+    handleOnChange(e){
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    handleOnSubmit(e){
+        e.preventDefault()
+        this.props.loginUser(this.state)
+        this.setState({
+            email: '',
+            password: ''}
+        )
+    }
+
+    render() {
+        return <div>
+            <form onSubmit={e => this.handleOnSubmit(e)}>
+                <input type="text" placeholder="Email" onChange={e => this.handleOnChange(e)} name='email'/>
+                <input type='password' placeholder='password' name='password' onChange={e => this.handleOnChange(e)}/>
                 <input type="submit"/>
             </form>
         </div>
-    )
+    }
 }
+
+export default connect(null, {loginUser})(Login)
