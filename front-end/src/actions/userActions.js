@@ -6,7 +6,9 @@ export function loginUser(loginData){
             headers: {
                 "Content-Type": 'application/json'
             },
-            body: JSON.stringify(loginData)
+            body: JSON.stringify({
+                user: loginData
+            })
         })
         .then(res => res.json())
         .then(user => {
@@ -18,19 +20,22 @@ export function loginUser(loginData){
 
 export function signUpUser(userData){
     return dispatch => {
+        const userInfo = {
+            user: userData
+        }
         fetch('http://localhost:3001/api/v1/signup', {
             credentials: 'include',
             method: "POST",
             headers: {
                 "Content-Type": 'applicaton/json'
             },
-            body: JSON.stringify(userData)
+            body: JSON.stringify(userInfo)
         })
         .then(res => res.json())
         .then(user => {
             return dispatch({type:"SIGNUP_USER", user})
         })
-        .catch(console.log(userData))
+        .catch(console.log(userInfo))
     
     }
 }
