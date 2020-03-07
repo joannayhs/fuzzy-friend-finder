@@ -1,6 +1,6 @@
 export function loginUser(loginData){
     return dispatch => {
-        fetch('http://localhost:3000/api/v1/login', {
+        fetch('http://localhost:3001/api/v1/login', {
             credentials: 'include',
             method: "POST",
             headers: {
@@ -18,7 +18,7 @@ export function loginUser(loginData){
 
 export function signUpUser(userData){
     return dispatch => {
-        fetch('http;//localhost:3000/api/v1/signup', {
+        fetch('http://localhost:3001/api/v1/signup', {
             credentials: 'include',
             method: "POST",
             headers: {
