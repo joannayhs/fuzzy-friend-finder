@@ -4,7 +4,6 @@ export function loadAdoptionForm(petId){
 
 export function submitForm(data){
     return dispatch => {
-        console.log(data)
         const formData = {
             application: data
         }

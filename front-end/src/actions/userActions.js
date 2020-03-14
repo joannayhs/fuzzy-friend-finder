@@ -12,7 +12,11 @@ export function loginUser(loginData){
         })
         .then(res => res.json())
         .then(user => {
+            if(user.errors){
+                alert(user.errors)
+            }else {
             return dispatch({type: "LOGIN_USER", user})
+            }
         })
         .catch(error => console.log(error))
     }
@@ -20,22 +24,26 @@ export function loginUser(loginData){
 
 export function signUpUser(userData){
     return dispatch => {
-        const userInfo = {
-            user: userData
-        }
         fetch('http://localhost:3001/api/v1/signup', {
-            credentials: 'include',
             method: "POST",
+            credentials: 'include',
             headers: {
-                "Content-Type": 'applicaton/json'
+                "Content-Type": 'applicaton/json',
+                "Accept":"application/json"
             },
-            body: JSON.stringify(userInfo)
+            body: JSON.stringify({
+                user: userData
+            })
         })
         .then(res => res.json())
         .then(user => {
-            return dispatch({type:"SIGNUP_USER", user})
+            if (user.error){
+                alert(user.error)
+            }else {
+                return dispatch({type: 'SIGNUP_USER', user})
+            }
         })
-        .catch(console.log(userInfo))
+        .catch(console.log('error'))
     
     }
 }

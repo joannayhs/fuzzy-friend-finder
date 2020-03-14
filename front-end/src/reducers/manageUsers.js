@@ -1,5 +1,8 @@
 export default function manageUser( state = {
-    user: ''
+    user: {
+        email: '',
+        password: ''
+    }
 }, action){
     switch(action.type){
         case 'LOGIN_USER':

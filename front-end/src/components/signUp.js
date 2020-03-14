@@ -38,4 +38,10 @@ class SignUpForm extends Component {
     
 }
 
-export default connect(null, { signUpUser })(SignUpForm)
+const mapDispatchToProps = dispatch => {
+    return {
+        signUpUser: user => dispatch(signUpUser(user))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(SignUpForm)
