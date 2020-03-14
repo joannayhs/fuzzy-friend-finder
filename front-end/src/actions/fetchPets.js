@@ -16,6 +16,21 @@ export function fetchPets() {
     }
 }
 
+export function loadPetPage(petId){
+    return dispatch => {
+        dispatch ({
+            type: 'START_LOADING_PET'
+        });
+        client.animals.search()
+        .then(function(response){
+            const animal = response.data.animals.filter(animal => animal.id === petId)
+            dispatch({type: 'LOAD_PET_PAGE', animal})
+        }).catch(function(error){
+            console.log(error)
+        })
+    }
+}
+
 
 
 
