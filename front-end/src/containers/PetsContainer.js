@@ -1,8 +1,8 @@
 import React from 'react'
-import { fetchPets } from '../actions/fetchPets'
-import { loadAdoptionForm } from '../actions/AdoptionFormActions'
 import { connect } from 'react-redux'
 import Pets from '../components/Pets/Pets'
+import { fetchPets } from '../actions/fetchPets'
+import { loadAdoptionForm } from '../actions/AdoptionFormActions'
 
 
 class PetsContainer extends React.Component{
@@ -21,5 +21,12 @@ class PetsContainer extends React.Component{
 
 }
 
-export default connect(state => ({pets: state.pets}), { fetchPets, loadAdoptionForm })(PetsContainer)
+const mapDispatchToProps = dispatch => {
+    return {
+    fetchPets: pets => dispatch(fetchPets(), pets),
+    loadAdoptionForm: petId => dispatch(loadAdoptionForm(petId))
+    }
+}
+
+export default connect(state => ({pets: state.pets}), mapDispatchToProps)(PetsContainer)
 

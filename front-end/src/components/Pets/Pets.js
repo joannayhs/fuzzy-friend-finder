@@ -5,8 +5,7 @@ import { connect } from 'react-redux'
 class Pets extends Component {
 
     checkRequesting = () => {
-        console.log(this.props)
-        if (this.props.requesting){
+        if (this.props.requesting === true){
             return <h1>Loading...</h1>
         }else{
             return (
@@ -25,7 +24,7 @@ class Pets extends Component {
 const mapStateToProps = state => {
     return {
         pets: state.pets,
-        requesting: state.requesting
+        requesting: state.pets.requesting
     } 
 }
 

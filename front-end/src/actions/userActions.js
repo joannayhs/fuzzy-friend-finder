@@ -14,7 +14,7 @@ export function loginUser(loginData){
         .then(user => {
             return dispatch({type: "LOGIN_USER", user})
         })
-        .catch(console.log(loginData))
+        .catch(error => console.log(error))
     }
 }
 

@@ -23,4 +23,6 @@ class PetCard extends Component {
         )}
 }
 
-export default PetCard
+
+
+export default (PetCard)
